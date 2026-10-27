@@ -1,5 +1,6 @@
 package com.example.kiemtra_laptrinhungdungdidong_2474802010525
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
@@ -46,6 +47,14 @@ class LoginActivity : AppCompatActivity() {
         } else {
             tvStatus.setTextColor(ContextCompat.getColor(this, android.R.color.holo_green_dark))
             tvStatus.text = "Validation Successful!"
+
+            val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra(EXTRA_EMAIL, email)
+            startActivity(intent)
         }
+    }
+
+    companion object {
+        const val EXTRA_EMAIL = "EXTRA_EMAIL"
     }
 }
